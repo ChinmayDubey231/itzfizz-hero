@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: { unoptimized: true },
   reactStrictMode: true,
+  // Don't generate AGENTS.md / CLAUDE.md in the project root on `next dev`.
+  agentRules: false,
 };
 
 export default nextConfig;
