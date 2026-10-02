@@ -4,7 +4,9 @@ A scroll-driven hero section built with **Next.js (App Router), React, Tailwind 
 
 A car parked at the edge of the road drives across the hero as you scroll. A green trail paints behind it and reveals the letter-spaced headline **W E L C O M E &nbsp; I T Z F I Z Z**, and each impact metric lights up as the car passes over it. Scroll back up and everything reverses.
 
-**Live demo:** `https://<your-username>.github.io/<repo-name>/`
+**Live demo:** https://chinmaydubey231.github.io/itzfizz-hero/
+
+**Repository:** https://github.com/ChinmayDubey231/itzfizz-hero
 
 ## Features
 
