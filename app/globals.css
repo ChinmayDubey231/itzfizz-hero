@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Unbounded Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #0e0f0c;
+  --color-asphalt: #1a1b18;
+  --color-panel: #161714;
+  --color-trail: #45db7d;
+}
+
+html {
+  background: var(--color-ink);
+  color: #f4f1ea;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  overflow-x: clip;
+}
+
+/* ---------- Headline ---------- */
+
+/*
+ * The un-revealed headline is a muted solid fill rather than a text-stroke
+ * outline: Unbounded's glyphs have overlapping contours, which a stroke
+ * would expose as stray lines inside the letters.
+ */
+.headline-muted {
+  color: rgb(244 241 234 / 0.13);
+}
+
+.headline-solid {
+  color: var(--color-ink);
+}
+
+/* ---------- Road ---------- */
+
+/* Dashed centre line, painted once by the GPU as a background. */
+.road-lane {
+  background-image: repeating-linear-gradient(
+    to right,
+    rgb(244 241 234 / 0.14) 0 28px,
+    transparent 28px 64px
+  );
+}
+
+/* Speed lines behind the car: horizontal streaks faded out with a mask. */
+.speed-lines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgb(244 241 234 / 0.55) 0 2px,
+    transparent 2px 13px
+  );
+  -webkit-mask-image: linear-gradient(to right, #000 0%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 0%, transparent 100%);
+}
+
+/*
+ * Intro elements are hidden until GSAP takes over, so there is no flash of
+ * the final state before hydration. The `js` class is added by an inline
+ * script in <head>; without JavaScript everything stays visible.
+ */
+.js [data-intro] {
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-intro] {
+    visibility: visible;
+  }
+}
